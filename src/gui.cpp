@@ -43,6 +43,20 @@ gboolean Gui::on_stage_button_press(ClutterStage * /* stage */, ClutterEvent *ev
     return TRUE; /* Stop further handling of this event. */
 }
 
+void Gui::do_quit(GObject * /* instance */, const gchar * /* action_name */, guint /* key_val */, ClutterModifierType /* modifiers */, gpointer user_data)
+{
+    Gui *context = static_cast<Gui *>(user_data);
+    g_print("Ctrl-q pressed\n");
+    context->owner_->quit();
+}
+
+gboolean Gui::on_key_pressed(ClutterActor *actor, ClutterEvent *event, gpointer /* user_data */)
+{
+    ClutterBindingPool *pool;
+    pool = clutter_binding_pool_find(G_OBJECT_TYPE_NAME(actor));
+    return clutter_binding_pool_activate(pool, clutter_event_get_key_symbol(event), clutter_event_get_state(event), G_OBJECT(actor));
+}
+
 /**
  * Graphical user interface for the application. 
  *
@@ -88,6 +102,14 @@ Gui::Gui(Application* owner) :
   
     /* Connect a signal handler to handle mouse clicks and key presses on the stage: */ 
     g_signal_connect(stage_, "button-press-event", G_CALLBACK(on_stage_button_press), this);
+
+    // Setup the key controls
+    ClutterBindingPool *binding_pool;
+    GObjectClass *stage_class;
+    stage_class = (GObjectClass* ) CLUTTER_STAGE_GET_CLASS(stage_);
+    binding_pool = clutter_binding_pool_get_for_class(stage_class);
+    clutter_binding_pool_install_action(binding_pool, "quit-application", CLUTTER_q, CLUTTER_CONTROL_MASK, G_CALLBACK(do_quit), this, NULL);
+    g_signal_connect(stage_, "key-press-event", G_CALLBACK(on_key_pressed), this);
 }
 
 Gui::~Gui()

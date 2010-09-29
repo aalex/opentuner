@@ -28,7 +28,8 @@
 
 class Application;
 
-/** This graphical user interface uses Clutter.
+/** 
+ * This graphical user interface uses Clutter.
  */
 class Gui
 {
@@ -37,8 +38,6 @@ class Gui
         ~Gui();
         
     private:
-        // TODO: static void on_delete_event(GtkWidget* widget, GdkEvent* event, gpointer user_data);
-        // TODO: static gboolean key_press_event(GtkWidget *widget, GdkEventKey *event, gpointer user_data);
         static const int WINWIDTH = 640;
         static const int WINHEIGHT = 480;
         Application* owner_;
@@ -46,7 +45,12 @@ class Gui
         ClutterActor *pitch_text_;
         ClutterActor *lines_group_;
         std::vector< ClutterActor* > lines_;
+        // Called when a mouse button is pressed
         static gboolean on_stage_button_press(ClutterStage *stage, ClutterEvent *event, gpointer data);
+        // Called when some keys are pressed
+        static gboolean on_key_pressed(ClutterActor *actor, ClutterEvent *event, gpointer user_data);
+        // Called when ctrl-q is pressed
+        static void do_quit(GObject * instance, const gchar *action_name, guint key_val, ClutterModifierType modifiers, gpointer user_data);
 };
 
 #endif // __GUI_H__

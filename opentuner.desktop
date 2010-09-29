@@ -1,0 +1,10 @@
+[Desktop Entry]
+Exec=opentuner 
+Type=Application
+Terminal=false
+Name=Opentuner
+Name[fr]=Opentuner
+Comment=Opentuner musical tuner
+Comment[fr]=Accordeur musical Opentuner
+Categories=AudioVideo;Audio;
+Icon=opentuner

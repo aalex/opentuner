@@ -1,0 +1,68 @@
+Opentuner
+
+A musical tuner
+
+Basic Tools for Compiling
+-------------------------
+
+To build applications in general, you should have the following packages installed on your system:
+
+ automake,
+ bison,
+ build-essential,
+ flex,
+ libtool
+
+These instructions are for Ubuntu GNU/Linux - and should work on Debian GNU/Linux as well. Toonloop should build on other platforms too. Please help us improving this documentation if you get it to work on other operating systems.
+
+
+Dependencies
+------------
+
+Here is the list of Debian package that you will need to build it:
+
+ gettext,
+ help2man,
+ libasound-dev,
+ libboost-program-options-dev,
+ libboost-filesystem-dev,
+ libboost-system-dev,
+ libclutter-1.0-dev,
+ libglew1.5-dev,
+ libglib2.0-dev,
+ libglu1-mesa-dev,
+ libstk0-dev,
+ libxml2-dev,
+ libxv-dev,
+ mencoder
+
+How to build it
+---------------
+
+ ./autogen.sh
+ ./configure
+ make
+ sudo make install
+
+There is also the handy ./one_click_build.sh that does it in a single script. (except the `sudo make install`)
+
+
+How to run opentuner
+--------------------
+
+Note that you need to have the GLX acceleration set up in order to use Clutter, and therefore opentuner. 
+
+Here is how to lauch it:
+
+ opentuner
+
+See the opentuner(1) man page for details.
+
+
+DEVELOPERS DOCUMENTATION
+------------------------
+
+To build the HTML documentation, make sure you have doxygen installed, then:
+
+ make html
+

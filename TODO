@@ -1,0 +1,12 @@
+About this file
+---------------
+
+Here we list taks to be done. Once they are done, they should go in the RELEASE notes. 
+
+Once the tag is done for the version number in the RELEASE notes, they are moved to the NEWS file, (most recent first) and we update the version number in the RELEASE notes and the configure.ac file, and we remove all the task that are done from the RELEASE notes. 
+
+
+Things to do in priority
+------------------------
+
+TODO

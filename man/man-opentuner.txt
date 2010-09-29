@@ -1,0 +1,41 @@
+[DESCRIPTION]
+Opentuner is a musical tuner.
+
+[SYNOPSIS]
+opentuner [options]
+
+[EXAMPLES]
+
+To start it:
+
+ opentuner
+
+[INTERACTIVE USAGE]
+
+Opentuner is an interactive software. While it runs, the user can control it using keyboard keys. 
+
+[HISTORY]
+2010 - Version 0.x written by Alexandre Quessy
+
+[REPORTING BUGS]
+http://alexandre.quessy.net
+
+[COPYRIGHT]
+Copyright 2010 Alexandre Quessy
+<alexandre@quessy.net>
+
+Opentuner is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+Opentuner is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the gnu general public license
+along with Opentuner.  If not, see <http://www.gnu.org/licenses/>.
+
+[SEE ALSO]
+polygnome(1)

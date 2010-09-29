@@ -1,2 +1,0 @@
-#!/bin/sh
-osc-send osc.udp://127.0.0.1:11337 /toon/frame/remove

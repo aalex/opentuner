@@ -42,6 +42,7 @@ class Gui
         // TODO: static gboolean on_mouse_button_event(GtkWidget *widget, GdkEventButton *event, gpointer user_data);
         static const int WINWIDTH = 640;
         static const int WINHEIGHT = 480;
+        Application* owner_;
 };
 
 #endif // __GUI_H__

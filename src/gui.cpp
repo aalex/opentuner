@@ -32,7 +32,6 @@
 #include "gui.h"
 
 namespace fs = boost::filesystem;
-using std::tr1::shared_ptr;
 typedef std::vector<ClutterActor*>::iterator ActorIterator;
 
 /**

@@ -31,7 +31,6 @@
 #include "gui.h"
 
 namespace po = boost::program_options;
-namespace fs = boost::filesystem;
 
 Application::Application()
 {

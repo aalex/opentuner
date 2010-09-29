@@ -39,12 +39,13 @@ class Gui
     private:
         // TODO: static void on_delete_event(GtkWidget* widget, GdkEvent* event, gpointer user_data);
         // TODO: static gboolean key_press_event(GtkWidget *widget, GdkEventKey *event, gpointer user_data);
-        // TODO: static gboolean on_mouse_button_event(GtkWidget *widget, GdkEventButton *event, gpointer user_data);
         static const int WINWIDTH = 640;
         static const int WINHEIGHT = 480;
         Application* owner_;
         ClutterActor *stage_;
         ClutterActor *pitch_text_;
+        ClutterActor *lines_group_;
+        std::vector< ClutterActor* > lines_;
         static gboolean on_stage_button_press(ClutterStage *stage, ClutterEvent *event, gpointer data);
 };
 

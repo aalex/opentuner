@@ -64,14 +64,30 @@ Gui::Gui(Application* owner) :
     clutter_actor_show(stage_);
 
     // The text actor for the pitch
-    pitch_text_ = clutter_text_new_full("", "Sans 16px", clutter_color_new(255, 255, 255, 255));
-    clutter_text_set_text(CLUTTER_TEXT(pitch_text_), "A");
+    pitch_text_ = clutter_text_new_full("", "Sans 16px", clutter_color_new(0xff, 0xff, 0xff, 0xcc));
+    clutter_text_set_text(CLUTTER_TEXT(pitch_text_), "A440");
     clutter_actor_set_position(pitch_text_, 20, 150);
     clutter_container_add_actor(CLUTTER_CONTAINER(stage_), pitch_text_);
+
+    // the lines
+
+    lines_group_ = clutter_group_new();
+    clutter_container_add_actor(CLUTTER_CONTAINER(stage_), CLUTTER_ACTOR(lines_group_));
+    clutter_actor_set_position(lines_group_, WINWIDTH / 2.0f, WINHEIGHT / 2.0f - (WINHEIGHT / 4.0f));
+    unsigned int NUM_LINES = 100;
+    for(unsigned int i = 0 ; i < NUM_LINES; i++)
+    {
+        gfloat width = 1.0;
+        gfloat height = WINHEIGHT / 2.0f;
+        lines_.insert(lines_.begin(), (ClutterActor*) clutter_rectangle_new_with_color(clutter_color_new(0xff, 0xff, 0x33, 0xcc)));
+        clutter_container_add_actor(CLUTTER_CONTAINER(lines_group_), CLUTTER_ACTOR(lines_.at(0)));
+        clutter_actor_set_size(CLUTTER_ACTOR(lines_.at(0)), width, height);
+        gdouble angle = (i / float(NUM_LINES - 1)) * 180.0f - 90.0f;
+        clutter_actor_set_rotation(CLUTTER_ACTOR(lines_.at(0)), CLUTTER_Z_AXIS, angle, width, height, 0.0f);
+    }
   
     /* Connect a signal handler to handle mouse clicks and key presses on the stage: */ 
     g_signal_connect(stage_, "button-press-event", G_CALLBACK(on_stage_button_press), this);
-
 }
 
 Gui::~Gui()

@@ -43,6 +43,9 @@ class Gui
         static const int WINWIDTH = 640;
         static const int WINHEIGHT = 480;
         Application* owner_;
+        ClutterActor *stage_;
+        ClutterActor *pitch_text_;
+        static gboolean on_stage_button_press(ClutterStage *stage, ClutterEvent *event, gpointer data);
 };
 
 #endif // __GUI_H__

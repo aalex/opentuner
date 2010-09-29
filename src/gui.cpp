@@ -104,6 +104,7 @@ Gui::Gui(Application* owner) :
     g_signal_connect(stage_, "button-press-event", G_CALLBACK(on_stage_button_press), this);
 
     // Setup the key controls
+    // See http://docs.clutter-project.org/docs/clutter-cookbook/stable/events-handling-key-events.html
     ClutterBindingPool *binding_pool;
     GObjectClass *stage_class;
     stage_class = (GObjectClass* ) CLUTTER_STAGE_GET_CLASS(stage_);
